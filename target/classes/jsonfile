@@ -1,0 +1,27 @@
+
+curl --location --request POST 'http://localhost:8080/accounts/add/transactions' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=DFECEFEDBC42241AB51FBA728DDF44BE' \
+--data-raw '{
+    "accountNumber":"1000",
+    "type":"Deposit",
+    "amount":100
+}'
+
+curl --location --request POST 'http://localhost:8080/accounts/add/transactions' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=DFECEFEDBC42241AB51FBA728DDF44BE' \
+--data-raw '{
+    "accountNumber":"1000",
+    "type":"Withdraw",
+    "amount":10
+}'
+
+curl --location --request GET 'http://localhost:8080/accounts/accountno/1000/Start/2021-09-11/end/2021-09-16' \
+--header 'Cookie: JSESSIONID=DFECEFEDBC42241AB51FBA728DDF44BE'
+
+curl --location --request GET 'http://localhost:8080/accounts/accountno/1000/trans/Withdraw/Start/	2021-09-11/end/2021-09-15' \
+--header 'Cookie: JSESSIONID=DFECEFEDBC42241AB51FBA728DDF44BE'
+
+curl --location --request GET 'http://localhost:8080/accounts/AccountNO/1000/trans/DEPOSIT' \
+--header 'Cookie: JSESSIONID=DFECEFEDBC42241AB51FBA728DDF44BE'
